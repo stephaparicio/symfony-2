@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Série #{{ category.id }}{% endblock %}
+
+{% block body %}
+    <div class="media">
+        <img class="align-self-start mr-3" src="{{category.poster}}" alt="{{ category.title }} poster">
+        <div class="media-body">
+            <h1 class="mt-0">{{ category.id }}</h1>
+            <p>{{ category.synopsis }}</p>
+            <p>Catégorie : {{ category.name }}</p>
+        </div>
+    </div>
+
+    <a href="{{ path('category_index') }}">
+        Retour à la liste des categories
+    </a>
+    {# ... #}
+
+    {% for category in categories %}
+
+        <div>
+            <h2>{{ loop.index }} /  Catégorie : {{ category.name }}</h2>
+            {# Lien vers la fiche de la série : #}
+            <a href="{{ path("category_show", { id: category.id }) }}">Voir la fiche</a>
+        </div>
+
+{# ... #}
+{% endblock %}

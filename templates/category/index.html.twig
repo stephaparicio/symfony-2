@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} WAll categorys {% endblock %}
+
+{% block body %}
+{% include '_navbar.html.twig' %}
+<h1> Toutes les séries de la table program :</h1>
+{% for category in categories %}
+<div>
+    <h2>{{ loop.index }} / {{ category.id }} - Catégorie : {{ category.name }}</h2>
+   
+</div>
+{% else %}
+Aucune série trouvée.
+{% endfor %}
+
+<a href="{{ path('app_index') }}">
+    Retour à l'accueil
+</a>
+
+{% endblock %}

@@ -1,10 +1,10 @@
 {% extends 'base.html.twig' %}
 
-
-{% block title %}Wild Series{% endblock %}
-
-
+{% block title %}All programs{% endblock %}
 {% block body %}
-<h1>{{ message }}</h1>
+
+    <a href="{{ path('app_index') }}">
+        Retour à l'accueil
+    </a>
 
 {% endblock %}
