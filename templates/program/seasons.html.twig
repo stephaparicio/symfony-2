@@ -4,17 +4,12 @@
 
 {% block body %}
 
-<div style="width: 18rem;">
+<div class="card" style="width: 18rem;">
   <img src="{{program.poster}}" class="card-img-top" alt="{{ program.title }} poster">
-  <div >
-    <h5 >{{ program.title }}</h5>
-    <p >{{ program.synopsis }}</p>
-    <p >Catégorie : {{ program.category.name }}</p>
+  <div class="card-body">
+    <h5 class="card-title">Saison {{ season.number }} de {{ program.title }}</h5>
     {% for season in program.seasons %}
-    <p><a  class="btn btn-primary" href="/program/{{ program.id }}/seasons/{{ season.id }}">
-        Saison {{ season.number }} 
-    </a>
-    </p>
+    <p class="card-text">{{ program.synopsis }}</p>  
     {% endfor %}   
   </div>
 </div>

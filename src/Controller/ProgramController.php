@@ -4,6 +4,8 @@
 
 namespace App\Controller;
 
+use App\Entity\Program;
+use App\Entity\Season;
 use App\Repository\ProgramRepository;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -47,8 +49,15 @@ class ProgramController extends AbstractController
                 'No program with id : ' . $id . ' found in program\'s table.'
             );
         }
-        return $this->render('program/show.html.twig', [
-            'program' => $program,
-        ]);
+        return $this->render('program/show.html.twig', ['program' => $program,]);
+    }
+
+    #[Route('/program/{programID}/seasons/{seasonID}', name: 'program_seasons_show')]
+    public function showSeason(Program $programID, Season $seasonID): Response
+    {    
+
+        return $this->render('program/seasons.html.twig', ['program' => $programID,'season' => $seasonID]);
+
     }
 }
+
